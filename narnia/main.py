@@ -1,5 +1,6 @@
 import random
 import os
+import json
 
 class Assets:
   first_names = [
@@ -10,26 +11,36 @@ class Assets:
     "Smith", "Williams", "Davis", "Jones", "Miller", "Brown", "Lopez", "Wilson", "Martinez", "Lee", "Jackson", "Thomas", "Tayler", "Anderson", "Moore", "White", "Harrison", "Clark", "Lewis", "Robinson", "Walker", "Young", "Allen", "King", "Torres", "Scott", "Hill", "Green", "Hall", "Nelson", "Baker", "Flores", "Roberts", "Mitchell", "Carter", "Campbell" 
   ]
 
+  def parse_json(tjson):
+    return json.dumps(tjson, sort_keys=False, indent=2)
+
 class data:
   def name(num=1):
-    all_names = []
+    all_names = {}
+    a = 0
     for _ in range(num):
-      all_names.append(random.choice(Assets.first_names) + " " + random.choice(Assets.last_names))
+      a += 1
+      all_names[f"name_{str(a)}"] = random.choice(Assets.first_names) + " " + random.choice(Assets.last_names)
       
-    return "\n".join(all_names)
+    return Assets.parse_json(all_names)
   
   def firstName(num=1):
-    all_first_names = []
+    all_first_names = {}
+    a = 0
     for _ in range(num):
-      all_first_names.append(random.choice(Assets.first_names))
+      a += 1
+      all_first_names[f"firstName_{str(a)}"] = random.choice(Assets.first_names)
   
-    return "\n".join(all_first_names)
+    return Assets.parse_json(all_first_names)
 
   def lastName(num=1):
-    all_last_names = []
+    all_last_names = {}
+    a = 0
     for _ in range(num):
-      all_last_names.append(random.choice(Assets.last_names))
-    return "\n".join(all_last_names)
+      a += 1
+      all_last_names[f"lastName_{str(a)}"] = random.choice(Assets.last_names)
+      
+    return Assets.parse_json(all_last_names)
 
 class experiments:
   def __init__(self, num=1):

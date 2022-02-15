@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
   name = "narnia",
-  version = "0.0.3",
+  version = "0.0.4",
   description = "Journey across a vast expanse of experimental designs and data.",
   long_description = long_description,
   long_description_content_type = "text/markdown",
