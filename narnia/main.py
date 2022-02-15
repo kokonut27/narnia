@@ -46,4 +46,4 @@ class experiments:
   def __init__(self, num=1):
     pass
 
-print(data.lastName(2))
+# print(data.lastName(2))
